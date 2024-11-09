@@ -4,9 +4,9 @@ import { IoSearchOutline } from "react-icons/io5";
 import { HiOutlineUser } from "react-icons/hi";
 
 import avatarImg from "../assets/avatar.png"
-import { useState} from "react";
-import { useSelector } from 'react-redux';
-
+import { useState } from "react";
+import { useSelector } from "react-redux";
+import { useAuth } from "../context/AuthContext";
 
 const navigation = [
     {name: "Dashboard", href:"/user-dashboard"},
@@ -19,13 +19,15 @@ const Navbar = () => {
 
     const  [isDropdownOpen, setIsDropdownOpen] = useState(false)
     const cartItems = useSelector(state => state.cart.cartItems);
-    console.log(cartItems)
+   
+    const {currentUser, logout} = useAuth()
     
     const handleLogOut = () => {
         logout()
     }
 
-    const   currentUser= true;
+    const token = localStorage.getItem('token');
+  
     return (
         <header className="max-w-screen-2xl mx-auto px-4 py-6">
             <nav className="flex justify-between items-center">
@@ -71,7 +73,7 @@ const Navbar = () => {
                                             }
                                             <li>
                                                 <button
-                                                onClick={handleLogOut} 
+                                                onClick={handleLogOut}
                                                 className="block w-full text-left px-4 py-2 text-sm hover:bg-gray-100">Logout</button>
                                             </li>
                                         </ul>
@@ -93,8 +95,9 @@ const Navbar = () => {
                         {
                             cartItems.length > 0 ?  <span className="text-sm font-semibold sm:ml-1">{cartItems.length}</span> :  <span className="text-sm font-semibold sm:ml-1">0</span>
                         }
+                        
+                       
                     </Link>
-                    
                 </div>
             </nav>
         </header>

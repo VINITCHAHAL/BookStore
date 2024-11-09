@@ -4,8 +4,9 @@ import Home from "../pages/home/Home"
 import Login from "../components/Login"
 import Register from "../components/Register"
 import CartPage from "../pages/books/CartPage"
-import BookCard from "../pages/books/BookCard"
+// import BookCard from "../pages/books/BookCard"
 import CheckoutPage from "../pages/books/CheckoutPage";
+import PrivateRoute from "./PrivateRoute";
 
 
 const router = createBrowserRouter([
@@ -40,7 +41,7 @@ const router = createBrowserRouter([
          },
          {
             path:"/checkout",
-            element:<CheckoutPage/>
+            element:<PrivateRoute><CheckoutPage/></PrivateRoute>
          }
       ]
     },
