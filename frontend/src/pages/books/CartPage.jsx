@@ -13,11 +13,9 @@ const CartPage = () => {
     const handleRemoveFromCart = (product) => {
         dispatch(removeFromCart(product))
     }
-
     const handleClearCart = () => {
         dispatch(clearCart())
     }
-
     return (
         <div className="flex mt-12 h-full flex-col overflow-hidden bg-white shadow-xl">
             <div className="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
@@ -31,7 +29,6 @@ const CartPage = () => {
                         Clear Cart
                     </button>
                 </div>
-
                 <div className="mt-8">
                     {cartItems.length > 0 ? (
                         <ul role="list" className="-my-6 divide-y divide-gray-200">
@@ -79,7 +76,6 @@ const CartPage = () => {
                     )}
                 </div>
             </div>
-
             {cartItems.length > 0 && (
                 <div className="border-t border-gray-200 px-4 py-6 sm:px-6">
                     <div className="flex justify-between text-base font-medium text-gray-900">
@@ -110,5 +106,4 @@ const CartPage = () => {
         </div>
     )
 }
-
 export default CartPage

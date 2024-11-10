@@ -1,20 +1,14 @@
 import BookCard from '../books/BookCard';
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-
+import { useFetchAllBooksQuery } from '../../redux/features/books/booksApi';
 const Recommend = () => {
-
-    const [books ,setBooks] = useState([]);
-
-    useEffect(()=> {
-        fetch("books.json").
-        then(res => res.json()).
-        then((data)=> setBooks(data))
-      }, [])
+       const [selectedCategory, setSelectedCategory] = useState("Choose a genre");
+       const {data: books = []} = useFetchAllBooksQuery();
   return (
     <div className='py-16'>
         <h2 className='text-3xl font-semibold mb-6'>Recommended For You </h2>
@@ -42,7 +36,6 @@ const Recommend = () => {
                 }}
                 modules={[Pagination, Navigation]}
                 className="mySwiper">
-
                 {
                    books.length > 0 && books.slice(8,16).map((book, index) => (
                         <SwiperSlide key={index}>
@@ -54,5 +47,4 @@ const Recommend = () => {
     </div>
   )
 }
-
 export default Recommend

@@ -1,12 +1,9 @@
 import React from 'react'
 import { FiShoppingCart } from 'react-icons/fi'
 import { getImgUrl } from '../../utils/getImgUrl'
-
 import { Link } from'react-router-dom'
-
 import { useDispatch } from'react-redux'
 import { addToCart } from '../../redux/features/cart/cartSlice'
-
 const BookCard = ({book}) => {
     const dispatch =  useDispatch();
 
@@ -26,7 +23,6 @@ const BookCard = ({book}) => {
                         />
                     </Link>
                 </div>
-
                 <div>
                     <Link to={`/books/${book._id}`}>
                         <h3 className="text-xl font-semibold hover:text-blue-600 mb-3">
@@ -48,5 +44,4 @@ const BookCard = ({book}) => {
         </div>
     )
 }
-
 export default BookCard
