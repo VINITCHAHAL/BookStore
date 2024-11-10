@@ -11,8 +11,6 @@ const PrivateRoute = ({children}) => {
     if(currentUser) {
         return children;
     }
-  
     return <Navigate to="/login" replace/>
 }
-
 export default PrivateRoute
