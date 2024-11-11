@@ -1,7 +1,6 @@
 import React from 'react'
 import { useGetOrderByEmailQuery } from '../../redux/features/orders/ordersApi'
 import { useAuth } from '../../context/AuthContext';
-
 const OrderPage = () => {
     const { currentUser} = useAuth()
     const { data: orders = [], isLoading, isError } = useGetOrderByEmailQuery(currentUser.email);
