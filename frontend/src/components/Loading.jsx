@@ -1,5 +1,5 @@
+// eslint-disable-next-line no-unused-vars
 import React from 'react';
-
 const Loading = () => {
   return (
     <div className="flex justify-center items-center h-screen">
@@ -7,5 +7,4 @@ const Loading = () => {
     </div>
   );
 };
-
 export default Loading;
